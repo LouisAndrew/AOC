@@ -1,19 +1,12 @@
-package main
+package day_1
 
 import (
 	"bufio"
 	"errors"
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
-
-func checkError(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
 
 func parseLiteralDigit(input string, startindex int) (int, error) {
 	const FAIL = -1
@@ -72,16 +65,12 @@ func getNumberFromInput(input string) int {
 	return digits[0]*10 + digits[1]
 }
 
-func main() {
-	file, err := os.Open("inputs/input-1.txt")
-	checkError(err)
-	defer file.Close()
-
+func Process(file *os.File) string {
 	scanner := bufio.NewScanner(file)
 	result := 0
 	for scanner.Scan() {
 		result += getNumberFromInput(scanner.Text())
 	}
 
-	fmt.Println(result)
+	return strconv.Itoa(result)
 }
