@@ -4,6 +4,7 @@ import (
 	day_1 "aoc-2023/1"
 	day_2 "aoc-2023/2"
 	day_3 "aoc-2023/3"
+	day_4 "aoc-2023/4"
 	"fmt"
 	"os"
 )
@@ -34,6 +35,10 @@ func main() {
 		"3": {
 			filepath: "inputs/input-3.txt",
 			process:  day_3.Process,
+		},
+		"4": {
+			filepath: "inputs/input-4.txt",
+			process:  day_4.Process,
 		},
 	}
 
