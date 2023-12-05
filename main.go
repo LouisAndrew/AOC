@@ -5,6 +5,7 @@ import (
 	day_2 "aoc-2023/2"
 	day_3 "aoc-2023/3"
 	day_4 "aoc-2023/4"
+	day_5 "aoc-2023/5"
 	"fmt"
 	"os"
 )
@@ -21,31 +22,47 @@ func checkError(e error) {
 }
 
 func main() {
-	day := os.Args[1:][0]
+	args := os.Args[1:]
+	day := args[0]
+	testMode := ""
+
+	if len(args) > 1 {
+		testMode = args[1]
+	}
 
 	processorMap := map[string]processor{
 		"1": {
-			filepath: "inputs/input-1.txt",
+			filepath: "inputs/input-1",
 			process:  day_1.Process,
 		},
 		"2": {
-			filepath: "inputs/input-2.txt",
+			filepath: "inputs/input-2",
 			process:  day_2.Process,
 		},
 		"3": {
-			filepath: "inputs/input-3.txt",
+			filepath: "inputs/input-3",
 			process:  day_3.Process,
 		},
 		"4": {
-			filepath: "inputs/input-4.txt",
+			filepath: "inputs/input-4",
 			process:  day_4.Process,
+		},
+		"5": {
+			filepath: "inputs/input-5",
+			process:  day_5.Process,
 		},
 	}
 
 	processor, ok := processorMap[day]
 
 	if ok {
-		file, err := os.Open(processor.filepath)
+		filepath := processor.filepath
+
+		if testMode != "" {
+			filepath += "-test"
+		}
+
+		file, err := os.Open(filepath + ".txt")
 		checkError(err)
 
 		defer file.Close()
