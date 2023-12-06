@@ -6,6 +6,8 @@ import (
 	day_3 "aoc-2023/3"
 	day_4 "aoc-2023/4"
 	day_5 "aoc-2023/5"
+	day_6 "aoc-2023/6"
+	day_7 "aoc-2023/7"
 	"fmt"
 	"os"
 )
@@ -50,6 +52,14 @@ func main() {
 		"5": {
 			filepath: "inputs/input-5",
 			process:  day_5.Process,
+		},
+		"6": {
+			filepath: "inputs/input-6",
+			process:  day_6.Process,
+		},
+		"7": {
+			filepath: "inputs/input-7",
+			process:  day_7.Process,
 		},
 	}
 
