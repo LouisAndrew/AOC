@@ -6,7 +6,9 @@ import (
 )
 
 func NumberRegexp() *regexp.Regexp {
-	return regexp.MustCompile(`\d+`)
+	// won't compile integers!
+	// return regexp.MustCompile(`\d+`)
+	return regexp.MustCompile(`-?\d*\.{0,1}\d+`)
 }
 
 func MakeRange(start, end int) []int {
@@ -51,4 +53,12 @@ func Min(num1, num2 int) int {
 func RemoveFromArray[T comparable](array []T, index int) []T {
 	array[index] = array[len(array)-1]
 	return array[:len(array)-1]
+}
+
+func Abs(i int) int {
+	if i < 0 {
+		return -i
+	}
+
+	return i
 }
