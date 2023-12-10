@@ -62,3 +62,26 @@ func Abs(i int) int {
 
 	return i
 }
+
+type Box struct {
+	Length int
+	Width  int
+}
+
+type Point struct {
+	X int
+	Y int
+}
+
+func (b *Box) IsWithin(point Point) bool {
+	return point.X >= 0 && point.X < b.Width && point.Y >= 0 && point.Y < b.Length
+}
+
+type Range struct {
+	Min int
+	Max int
+}
+
+func (r *Range) IsWithin(value int) bool {
+	return value >= r.Min && value <= r.Max
+}
