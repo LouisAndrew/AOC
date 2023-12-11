@@ -3,6 +3,7 @@ package main
 import (
 	day_1 "aoc-2023/1"
 	day_10 "aoc-2023/10"
+	day_11 "aoc-2023/11"
 	day_2 "aoc-2023/2"
 	day_3 "aoc-2023/3"
 	day_4 "aoc-2023/4"
@@ -75,6 +76,10 @@ func main() {
 		"10": {
 			filepath: "inputs/input-10",
 			process:  day_10.Process,
+		},
+		"11": {
+			filepath: "inputs/input-11",
+			process:  day_11.Process,
 		},
 	}
 
